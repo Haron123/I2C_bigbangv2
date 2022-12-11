@@ -1,4 +1,3 @@
-<pre>
 # I2C_bigbangv2
 An Arduino Libary to Bitbang I2C, is currently being tested by me with various devices to see if it works. so far it works well though.<br/>
 The Point isnt to use this as a goto Libary for i2c devices but to help you(and especially me) understand I2C in a simpler way.<br/>
@@ -24,17 +23,17 @@ void starti2c(byte clockpin, byte datapin); // Sets the Pins accordingly for the
 Aslong as you understand the basics of the I2C Protocol this is quite Straightforward
 
 # Example Usage : 
-Receive the Busvoltage read by the INA219 Sensor with a slave address 0x40
+Receive the Busvoltage read by the INA219 Sensor with a slave address 0x40  
 
-short getBusVoltage()
+short getBusVoltage()  
 {
-  // Sends Address + Write Bit + Pointer Address
-  startcond(sclpin, sdapin);
-  sendAddress(0x40, sclpin, sdapin);
-  sendWrite(sclpin, sdapin);
-  checkAck(sclpin, sdapin);
-  sendByte(0x02, sclpin, sdapin);
-  checkAck(sclpin, sdapin);
+  // Sends Address + Write Bit + Pointer Address  
+  startcond(sclpin, sdapin);  
+  sendAddress(0x40, sclpin, sdapin); 
+  sendWrite(sclpin, sdapin);  
+  checkAck(sclpin, sdapin); 
+  sendByte(0x02, sclpin, sdapin); 
+  checkAck(sclpin, sdapin); 
 
   // Sends Address + Read Bit
   startcond(sclpin, sdapin);
@@ -56,4 +55,3 @@ short getBusVoltage()
   short data = (((higher << 8) | lower) >> 3);
   return data * 4;
 }
-</pre>
