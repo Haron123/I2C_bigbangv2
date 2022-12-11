@@ -1,10 +1,10 @@
+<pre>
 # I2C_bigbangv2
-
-An Arduino Libary to Bitbang I2C, is currently being tested by me with various devices to see if it works. so far it works well though.
-The Point isnt to use this as a goto Libary for i2c devices but to help you(and especially me) understand I2C in a simpler way.
-
-The Code is still quite messy though and im quite certain breaks rules of the I2C protocl but so far it worked flawless with the SSD1306 and INA219.
-
+An Arduino Libary to Bitbang I2C, is currently being tested by me with various devices to see if it works. so far it works well though.<br/>
+The Point isnt to use this as a goto Libary for i2c devices but to help you(and especially me) understand I2C in a simpler way.<br/>
+<br/>
+The Code is still quite messy though and im quite certain breaks rules of the I2C protocl but so far it worked flawless with the SSD1306 and INA219.<br/>
+<br/>
 # Functions : 
 
 void sendByte(byte data, byte clockpin, byte datapin); // Sends a Byte
@@ -56,3 +56,4 @@ short getBusVoltage()
   short data = (((higher << 8) | lower) >> 3);
   return data * 4;
 }
+</pre>
