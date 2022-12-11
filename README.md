@@ -6,9 +6,9 @@ The Code is still quite messy though and im quite certain breaks rules of the I2
 <br/>
 # Functions : 
 
-void sendByte(byte data, byte clockpin, byte datapin); // Sends a Byte
-void sendAddress(byte address, byte clockpin, byte datapin); // Sends an Address, without Read or Write Bit
-byte getByte(byte clockpin, byte datapin); // Receives Byte from slave without sending ack
+void sendByte(byte data, byte clockpin, byte datapin); // Sends a Byte  
+void sendAddress(byte address, byte clockpin, byte datapin); // Sends an Address, without Read or Write Bit  
+byte getByte(byte clockpin, byte datapin); // Receives Byte from slave without sending ack  
 void sendBit(byte bit, byte clockpin, byte datapin); // Sends a single Bit, bit can be 1 or 0
 void sendRead(byte clockpin, byte datapin); // Sends Read Byte
 void sendWrite(byte clockpin, byte datapin); // Sends Write Byte
