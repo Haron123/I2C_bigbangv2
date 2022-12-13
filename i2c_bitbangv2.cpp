@@ -8,7 +8,42 @@ void starti2c(byte clockpin, byte datapin)
   pinMode(datapin, INPUT);
 }
 
-  // Send one bit at a time, MSB gets sent first
+// Enter Byte as String in the Format "ByteByteByte"
+// Example : "FFAE7A"
+// Interpreted as FF ; AE; 7A
+// Must be Hex as this Function isnt very complex and wont accept other Number formats
+// Sends 2 Most Left Letters First.
+// it adds no new function just helps make clean look tidier if you need to send tons of Bytes at once(e.g. for a display)
+void sendManyBytesHex(String data, byte clockpin, byte datapin)
+{
+    for(int i = 0; i < data.length(); i+=2)
+    {
+      byte first =  charToHex(data.charAt(i));
+      byte second = charToHex(data.charAt(i+1));
+      
+      byte currenthex = ((first * 16) + second);
+      sendByte(currenthex, clockpin, datapin);
+      checkAck(clockpin, datapin);
+    }
+    stopcond(clockpin, datapin);
+}
+
+byte charToHex(char letter)
+{
+  if(letter > 47 && letter < 58)
+  {
+    return letter-48;
+  }
+  else if(letter > 64 && letter < 71)
+  {
+    return letter-55;
+  }
+  else if(letter > 96 && letter < 103)
+  {
+    return letter-87;
+  }
+}
+// Send one bit at a time, MSB gets sent first
 void sendByte(byte data, byte clockpin, byte datapin)
 {
   byte currentBit;
@@ -119,7 +154,6 @@ void sendZero(byte clockpin, byte datapin, byte microDelay)
   digitalWrite(datapin, LOW);
   digitalWrite(clockpin, HIGH);
   delayMicroseconds(microDelay);
-  
 }
 
 // Sends the start condition

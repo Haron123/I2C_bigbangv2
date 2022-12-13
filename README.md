@@ -19,6 +19,9 @@ void sendZero(byte clockpin, byte datapin, byte microDelay); // Sends a Zero wit
 void startcond(byte clockpin, byte datapin); // Sends a Startcondition  
 void stopcond(byte clockpin, byte datapin); // Sends a Stop condition  
 void starti2c(byte clockpin, byte datapin); // Sets the Pins accordingly for the i2c communication to go flawless  
+void sendManyBytesHex(String data, byte clockpin, byte datapin); // Sends a String of data
+// String has to be encoded in HEX, example : "FF02AEBB"
+// Sends Bytes in this sequence : FF; 02; AE; BB. Must be in HEX
   
 Aslong as you understand the basics of the I2C Protocol this is quite Straightforward  
    

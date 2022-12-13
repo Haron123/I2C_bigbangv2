@@ -15,4 +15,5 @@ void sendZero(byte clockpin, byte datapin, byte microDelay);
 void startcond(byte clockpin, byte datapin);
 void stopcond(byte clockpin, byte datapin);
 void starti2c(byte clockpin, byte datapin);
+void sendManyBytesHex(String data, byte clockpin, byte datapin);
 #endif
